@@ -1,0 +1,9 @@
+('/home/aditya/1study/projects/1ClickWorkspace/build/main/main',
+ True,
+ False,
+ None,
+ None,
+ [],
+ None,
+ False,
+ 1428249827)
