@@ -6,4 +6,4 @@
 Screenshot
 ----------
 
-![Alt text](/../master/img/pic1.png?raw=true "Screenshot1")
+![Alt text](../master/img/pic1.png?raw=true "Screenshot1")
