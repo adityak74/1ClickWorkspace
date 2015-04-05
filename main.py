@@ -1,15 +1,21 @@
 #!/usr/bin/python3
 # write tkinter as Tkinter to be Python 2.x compatible
+from multi_os_base import *
 from Tkinter import *
-def hello(event):
-    print("Single Click, Button-l") 
-def quit(event):                           
-    print("Double Click, so let's stop") 
-    import sys; sys.exit() 
 def getPath(event):
 	Lb1.insert(END,E1.get())
-def printActivePath(event):
-	print("Clicked")
+
+def deleteActivePath(event):
+	Lb1.delete(ACTIVE)
+
+def openActivePath(event):
+	try:
+		print(Lb1.get(ACTIVE))
+		openFolder(Lb1.get(ACTIVE))
+	except Exception, e:
+		raise e
+	
+
 
 import tkMessageBox
 
@@ -26,20 +32,17 @@ frame.pack(fill=BOTH, expand=1)
 #var.set("Workspace Paths")
 
 
-widget = Button(frame, text='Edit Paths')
-widget.pack()
-widget.bind('<Button-1>', hello)
-widget.bind('<Double-1>', quit) 
+editBt = Button(frame, text='Delete Path')
+editBt.pack()
+editBt.bind('<Button-1>', deleteActivePath)
 
 Lb1 = Listbox(frame,selectmode = SINGLE)
-Lb1.insert(1, "Python")
-Lb1.insert(2, "Perl")
-Lb1.insert(3, "C")
-Lb1.insert(4, "PHP")
-Lb1.insert(5, "JSP")
-Lb1.insert(6, "Ruby")
-Lb1.bind("<Button-1>", printActivePath)
 Lb1.pack()
+
+b2 = Button(frame, text='Open')
+b2.pack(side = RIGHT)
+b2.bind('<Button-1>', openActivePath)
+
 
 frame2 = Frame(top, relief=RAISED, borderwidth=1)
 frame2.pack(fill=BOTH, expand=1)
