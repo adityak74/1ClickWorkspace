@@ -6,7 +6,7 @@ from Tkinter import *
 def hello():
     tkMessageBox.showinfo("Say Hello", "Hello World")
 def showAbout():
-	tkMessageBox.showinfo("About", "1-Click Workspace\nVersion 0.1-beta\n\nDeveloped by Aditya Karnam\nTwitter : @akarnam37\nEmail:akarnam37@gmail.com\nFacebook:fb.com/adityakarnam.g")
+	tkMessageBox.showinfo("About", "1-Click Workspace Manager\nVersion 0.1-beta\n\nDeveloped by Aditya Karnam\nTwitter : @akarnam37\nEmail:akarnam37@gmail.com\nFacebook:fb.com/adityakarnam.g")
 def getPath(event):
 	Lb1.insert(END,E1.get())
 
