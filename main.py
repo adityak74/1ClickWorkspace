@@ -21,6 +21,7 @@ import tkMessageBox
 
 top = Tk()
 top.title("1Click-Workspace Manager");
+top.minsize(width=400,height=400)
 
 var = StringVar()
 label = Label( top, text= 'Workspace Paths')
