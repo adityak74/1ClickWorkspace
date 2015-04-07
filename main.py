@@ -5,6 +5,8 @@ from fileHandler import *
 from Tkinter import *
 def hello():
     tkMessageBox.showinfo("Say Hello", "Hello World")
+def showAbout():
+	tkMessageBox.showinfo("About", "1-Click Workspace\nVersion 0.1-beta\n\nDeveloped by Aditya Karnam\nTwitter : @akarnam37\nEmail:akarnam37@gmail.com\nFacebook:fb.com/adityakarnam.g")
 def getPath(event):
 	Lb1.insert(END,E1.get())
 
@@ -23,7 +25,7 @@ def openActivePath(event):
 import tkMessageBox
 
 top = Tk()
-top.title("1Click-Workspace Manager");
+top.title("1Click-Workspace Manager")
 top.minsize(width=400,height=400)
 
 menubar = Menu(top)
@@ -44,7 +46,7 @@ editmenu.add_command(label="Paste", command=hello)
 menubar.add_cascade(label="Edit", menu=editmenu)
 
 helpmenu = Menu(menubar, tearoff=0)
-helpmenu.add_command(label="About", command=hello)
+helpmenu.add_command(label="About", command=showAbout)
 menubar.add_cascade(label="Help", menu=helpmenu)
 
 # display the menu
@@ -79,11 +81,13 @@ frame2.pack(fill=BOTH, expand=1)
 v = StringVar()
 L1 = Label(frame2, text="Enter Path")
 L1.pack( side = LEFT)
+
+b2 = Button(frame2, text='Add Path')
+b2.pack(side = RIGHT)
+b2.bind('<Button-1>', getPath)
+
 E1 = Entry(frame2, bd =5 , textvariable =v)
 E1.pack(side = RIGHT)
 
-b2 = Button(top, text='Add Path')
-b2.pack(side = RIGHT)
-b2.bind('<Button-1>', getPath)
 
 top.mainloop()
