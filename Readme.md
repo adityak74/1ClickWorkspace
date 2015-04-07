@@ -6,4 +6,4 @@
 Screenshot
 ----------
 
-![Screenshot 1](./images/pic1.png?raw=true "Screenshot1")
+![Screenshot 1](http://s6.postimg.org/4dcsvqymp/pic1.png"Screenshot1")
