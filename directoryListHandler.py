@@ -2,7 +2,16 @@ import os
 import pickle
 
 def saveWorkspaceList(workspaceList):
-	pickle.dump( workspaceList , open( 'WorkingListSaveFile.p' , "wb" ) )
+	workspaceListLen =  len(workspaceList)
+	try:
+		if workspaceListLen is 0:
+			print "No list items"
+			return -1
+		else:
+			pickle.dump( workspaceList , open( 'WorkingListSaveFile.p' , "wb" ) )
+	except Exception, e:
+		raise e
+	
 
 def loadWorkingList():
 	try:

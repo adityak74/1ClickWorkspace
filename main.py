@@ -4,10 +4,19 @@ from multi_os_base import *
 from directoryListHandler import *
 from fileHandler import *
 from Tkinter import *
+import tkMessageBox
+
+
+
+def exitHandler():
+    if tkMessageBox.askokcancel("Quit?", "Are you sure you want save before you quit?"):
+        setWorkingList()
+        top.quit()
+
 def hello():
     tkMessageBox.showinfo("Say Hello", "Hello World")
 def showAbout():
-    tkMessageBox.showinfo("About", "1-Click Workspace Manager\nVersion 0.1-beta\n\nDeveloped by Aditya Karnam\nTwitter : @akarnam37\nEmail:akarnam37@gmail.com\nFacebook:fb.com/adityakarnam.g")
+    tkMessageBox.showinfo("About", "1-Click Workspace Manager\nVersion 0.2-beta\n\nDeveloped by Aditya Karnam\nTwitter : @akarnam37\nEmail:akarnam37@gmail.com\nFacebook:fb.com/adityakarnam.g")
 def getPath(event):
     Lb1.insert(END,E1.get())
 
@@ -22,8 +31,10 @@ def openActivePath(event):
         raise e
 def getWorkingList():
     list = Lb1.get(0, END)
-    saveWorkspaceList(list)
-    print list
+    flag = saveWorkspaceList(list)
+    if flag is -1:
+        tkMessageBox.showinfo("Error", "No items to save.Please add Workspace Directory List Items to save the list.")
+
 def setWorkingList():
     workspaceList = loadWorkingList()
     if workspaceList is -1:
@@ -37,7 +48,7 @@ def setWorkingList():
 
 
 
-import tkMessageBox
+
 
 top = Tk()
 top.title("1Click-Workspace Manager")
@@ -50,7 +61,7 @@ filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="Open", command=setWorkingList)
 filemenu.add_command(label="Save", command=getWorkingList)
 filemenu.add_separator()
-filemenu.add_command(label="Exit", command=top.quit)
+filemenu.add_command(label="Exit", command=exitHandler)
 menubar.add_cascade(label="File", menu=filemenu)
 
 # create more pulldown menus
@@ -104,5 +115,5 @@ b2.bind('<Button-1>', getPath)
 E1 = Entry(frame2, bd =5 , textvariable =v)
 E1.pack(side = RIGHT)
 
-
+top.protocol("WM_DELETE_WINDOW", exitHandler)
 top.mainloop()
