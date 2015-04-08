@@ -6,9 +6,9 @@
 Screenshot
 ----------
 
-![Screenshot 1](http://s6.postimg.org/4dcsvqymp/pic1.png "Screenshot1")
+![Screenshot 1](http://s6.postimg.org/kbg05e5ld/pic1.png "Screenshot1")
 
-![Screenshot 2](http://s6.postimg.org/rg3bux041/pic2.png "Screenshot2")
+![Screenshot 2](http://s6.postimg.org/mhaazw91t/pic2.png "Screenshot2")
 
-![Screenshot 3](http://s6.postimg.org/bs24o4ki9/pic3.png "Screenshot3")
+![Screenshot 3](http://s6.postimg.org/qb3r91qdt/pic3.png "Screenshot3")
 
