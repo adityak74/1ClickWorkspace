@@ -1,25 +1,40 @@
 #!/usr/bin/python3
 # write tkinter as Tkinter to be Python 2.x compatible
 from multi_os_base import *
+from directoryListHandler import *
 from fileHandler import *
 from Tkinter import *
 def hello():
     tkMessageBox.showinfo("Say Hello", "Hello World")
 def showAbout():
-	tkMessageBox.showinfo("About", "1-Click Workspace Manager\nVersion 0.1-beta\n\nDeveloped by Aditya Karnam\nTwitter : @akarnam37\nEmail:akarnam37@gmail.com\nFacebook:fb.com/adityakarnam.g")
+    tkMessageBox.showinfo("About", "1-Click Workspace Manager\nVersion 0.1-beta\n\nDeveloped by Aditya Karnam\nTwitter : @akarnam37\nEmail:akarnam37@gmail.com\nFacebook:fb.com/adityakarnam.g")
 def getPath(event):
-	Lb1.insert(END,E1.get())
+    Lb1.insert(END,E1.get())
 
 def deleteActivePath(event):
-	Lb1.delete(ACTIVE)
+    Lb1.delete(ACTIVE)
 
 def openActivePath(event):
-	try:
-		print(Lb1.get(ACTIVE))
-		openFolder(Lb1.get(ACTIVE))
-	except Exception, e:
-		raise e
-	
+    try:
+        print(Lb1.get(ACTIVE))
+        openFolder(Lb1.get(ACTIVE))
+    except Exception, e:
+        raise e
+def getWorkingList():
+    list = Lb1.get(0, END)
+    saveWorkspaceList(list)
+    print list
+def setWorkingList():
+    workspaceList = loadWorkingList()
+    if workspaceList is -1:
+        print "No Save File"
+        tkMessageBox.showinfo("Error", "No save file.Please save the list before you exit the program")
+    else:
+        workspaceList = workspaceList[::-1]
+        Lb1.delete(0,END)
+        for item in workspaceList:
+            Lb1.insert( 0, item)
+
 
 
 import tkMessageBox
@@ -32,8 +47,8 @@ menubar = Menu(top)
 
 # create a pulldown menu, and add it to the menu bar
 filemenu = Menu(menubar, tearoff=0)
-filemenu.add_command(label="Open", command=hello)
-filemenu.add_command(label="Save", command=hello)
+filemenu.add_command(label="Open", command=setWorkingList)
+filemenu.add_command(label="Save", command=getWorkingList)
 filemenu.add_separator()
 filemenu.add_command(label="Exit", command=top.quit)
 menubar.add_cascade(label="File", menu=filemenu)

@@ -11,6 +11,8 @@ def getDirectoryList(value=None):
     	#print path
     dirs = os.listdir(path)
     #print dirs
+    #dirs = sorted(dirs)
+    #print dirs
     for file in dirs:
     	if(os.path.isdir(path + "/" + file)):
     		print file
