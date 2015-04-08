@@ -10,7 +10,7 @@ import tkMessageBox
 
 def exitHandler():
     if tkMessageBox.askokcancel("Quit?", "Are you sure you want save before you quit?"):
-        setWorkingList()
+        getWorkingList()
         top.quit()
 
 def hello():
@@ -40,6 +40,16 @@ def setWorkingList():
     if workspaceList is -1:
         print "No Save File"
         tkMessageBox.showinfo("Error", "No save file.Please save the list before you exit the program")
+    else:
+        workspaceList = workspaceList[::-1]
+        Lb1.delete(0,END)
+        for item in workspaceList:
+            Lb1.insert( 0, item)
+
+def init():
+    workspaceList = loadWorkingList()
+    if workspaceList is -1:
+        return
     else:
         workspaceList = workspaceList[::-1]
         Lb1.delete(0,END)
@@ -115,5 +125,6 @@ b2.bind('<Button-1>', getPath)
 E1 = Entry(frame2, bd =5 , textvariable =v)
 E1.pack(side = RIGHT)
 
+init()
 top.protocol("WM_DELETE_WINDOW", exitHandler)
 top.mainloop()
