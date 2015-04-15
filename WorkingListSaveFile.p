@@ -2,5 +2,9 @@
 p0
 S'/home/aditya/AndroidStudioProjects/Nz/niooz'
 p1
-tp2
+S'/home'
+p2
+S'/home/aditya/315'
+p3
+tp4
 .

@@ -125,6 +125,12 @@ b2.bind('<Button-1>', getPath)
 E1 = Entry(frame2, bd =5 , textvariable =v)
 E1.pack(side = RIGHT)
 
+statusFrame = Frame(top, relief=RAISED, borderwidth=1)
+frame2.pack(fill=BOTH, expand=1)
+
+label = Label( top, text= 'Status : OK')
+label.pack(side = LEFT)
+
 init()
 top.protocol("WM_DELETE_WINDOW", exitHandler)
 top.mainloop()
