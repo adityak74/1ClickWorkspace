@@ -103,7 +103,7 @@ editBt.pack()
 editBt.bind('<Button-1>', deleteActivePath)
 
 Lb1 = Listbox(frame,selectmode = SINGLE)
-Lb1.pack()
+Lb1.pack(fill=BOTH)
 
 b2 = Button(frame, text='Open')
 b2.pack(side = RIGHT)
